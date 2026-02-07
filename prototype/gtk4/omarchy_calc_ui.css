@@ -1,0 +1,192 @@
+.omcalc-window {
+    background: transparent;
+}
+
+.calc-canvas {
+    background: @calc_bg;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    padding: 12px;
+}
+
+.omcalc-window.is-expanded .calc-canvas {
+    padding: 20px;
+}
+
+.calc-header {
+    padding: 0 0 4px;
+}
+
+.calc-title {
+    color: @calc_text;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.calc-hints {
+    color: @calc_dim;
+    font-size: 0.72rem;
+}
+
+.calc-display {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.calc-entry {
+    border: none;
+    border-radius: 0;
+    min-height: 84px;
+    background: transparent;
+    color: @calc_text;
+    font-size: 2.52rem;
+    padding: 0;
+}
+
+.omcalc-window.is-expanded .calc-entry {
+    min-height: 108px;
+    font-size: 3rem;
+}
+
+.calc-entry:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+.calc-entry:focus-within {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+.calc-entry selection {
+    background-color: transparent;
+    color: @calc_text;
+}
+
+.calc-status {
+    color: @calc_dim;
+    font-size: 0.76rem;
+    margin-top: 1px;
+    min-height: 14px;
+    opacity: 1;
+    transition:
+        opacity 140ms ease-in-out,
+        min-height 140ms ease-in-out,
+        margin-top 140ms ease-in-out,
+        color 120ms ease-in-out;
+}
+
+.calc-status.is-hidden {
+    min-height: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.calc-status.is-error {
+    color: @calc_danger;
+}
+
+.calc-history-title {
+    color: @calc_dim;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.calc-history-scroll {
+    background: @calc_surface;
+    border: 1px solid @calc_border;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.omcalc-window.is-expanded .calc-history-scroll {
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.calc-history-item {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0;
+    background: transparent;
+}
+
+.calc-history-item:hover {
+    background: rgba(127, 187, 179, 0.1);
+    border-color: rgba(127, 187, 179, 0.28);
+}
+
+.calc-history-expression {
+    color: @calc_text;
+    font-size: 0.86rem;
+}
+
+.calc-history-result {
+    color: @calc_dim;
+    font-size: 0.8rem;
+}
+
+.calc-history-empty {
+    color: @calc_dim;
+    font-size: 0.82rem;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.calc-keypad {
+    margin-top: 4px;
+    padding: 2px;
+}
+
+.calc-button {
+    min-height: 30px;
+    border-radius: 8px;
+    border: 1px solid @calc_border;
+    background: @calc_surface;
+    color: @calc_text;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.omcalc-window.is-keypad-open .calc-button {
+    min-height: 28px;
+    font-size: 0.82rem;
+}
+
+.omcalc-window.is-expanded .calc-button {
+    min-height: 40px;
+    font-size: 1rem;
+}
+
+.calc-button:hover {
+    background: @calc_button_hover;
+}
+
+.calc-button.is-operator {
+    color: @calc_accent;
+    border-color: @calc_operator_border;
+}
+
+.calc-button.is-positive {
+    color: @calc_positive;
+    border-color: @calc_positive_border;
+}
+
+.calc-button.is-warning {
+    color: @calc_warning;
+    border-color: @calc_warning_border;
+}
+
+.calc-button.is-danger {
+    color: @calc_danger;
+    border-color: @calc_danger_border;
+}
