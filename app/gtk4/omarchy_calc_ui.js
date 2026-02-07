@@ -382,7 +382,7 @@ class OmcalcApp extends Adw.Application {
         header.add_css_class('calc-header');
 
         const hints = new Gtk.Label({
-            label: 'Enter calc | Ctrl+K keypad',
+            label: 'Enter calc | Ctrl+K keypad | Ctrl+Shift+L wipe history',
             hexpand: true,
             xalign: 0,
         });

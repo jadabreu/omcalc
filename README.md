@@ -60,3 +60,25 @@ Before publishing:
 cd packaging/aur/omcalc-git
 makepkg --printsrcinfo > .SRCINFO
 ```
+
+## Publish Helper
+
+Use `scripts/publish.sh` to automate commit/push workflows.
+
+Main repo only:
+
+```bash
+./scripts/publish.sh --main-message "Add history wipe hint"
+```
+
+Main repo + AUR repo sync/push:
+
+```bash
+./scripts/publish.sh --main-message "Release update" --sync-aur
+```
+
+If your AUR clone is not in `/tmp/aur/omcalc-git`, pass:
+
+```bash
+./scripts/publish.sh --main-message "Release update" --sync-aur --aur-repo /path/to/omcalc-git
+```
