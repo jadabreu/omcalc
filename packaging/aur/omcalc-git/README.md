@@ -4,10 +4,10 @@ This folder contains an AUR-ready scaffold for `omcalc-git`.
 
 ## Before Publishing
 
-1. Edit `PKGBUILD` and replace:
-   - `url='https://github.com/YOUR_GITHUB_USER/omarchy-calc'`
-   - `source=('git+https://github.com/YOUR_GITHUB_USER/omarchy-calc.git' ...)`
-2. Regenerate metadata:
+1. Ensure `PKGBUILD` points to the correct upstream:
+   - `url='https://github.com/jadabreu/omcalc'`
+   - `source=('git+https://github.com/jadabreu/omcalc.git' ...)`
+2. Regenerate metadata after each `PKGBUILD` change:
    - `makepkg --printsrcinfo > .SRCINFO`
 
 ## Local Validation
