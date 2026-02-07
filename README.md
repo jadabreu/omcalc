@@ -65,20 +65,34 @@ makepkg --printsrcinfo > .SRCINFO
 
 Use `scripts/publish.sh` to automate commit/push workflows.
 
-Main repo only:
+Safer default: stage intentionally first, then run.
+
+Main repo only (staged changes):
 
 ```bash
 ./scripts/publish.sh --main-message "Add history wipe hint"
 ```
 
+Main repo only with scoped auto-stage:
+
+```bash
+./scripts/publish.sh --main-message "Add history wipe hint" --auto-stage
+```
+
 Main repo + AUR repo sync/push:
 
 ```bash
-./scripts/publish.sh --main-message "Release update" --sync-aur
+./scripts/publish.sh --main-message "Release update" --sync-aur --auto-stage --regen-srcinfo
 ```
 
 If your AUR clone is not in `/tmp/aur/omcalc-git`, pass:
 
 ```bash
 ./scripts/publish.sh --main-message "Release update" --sync-aur --aur-repo /path/to/omcalc-git
+```
+
+Preview without changing anything:
+
+```bash
+./scripts/publish.sh --main-message "Release update" --sync-aur --dry-run
 ```
