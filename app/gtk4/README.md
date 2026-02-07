@@ -1,6 +1,6 @@
-# Omcalc UI Prototype (GTK4)
+# Omcalc UI (GTK4)
 
-This is a native UI prototype focused on Omarchy visual congruence and keyboard-first flow.
+This is the native GTK4 implementation focused on Omarchy visual congruence and keyboard-first flow.
 
 ## Stack
 
@@ -14,13 +14,13 @@ This is a native UI prototype focused on Omarchy visual congruence and keyboard-
 ## Run
 
 ```bash
-gjs -m prototype/gtk4/omarchy_calc_ui.js
+gjs -m app/gtk4/omarchy_calc_ui.js
 ```
 
 or:
 
 ```bash
-./prototype/gtk4/run.sh
+./app/gtk4/run.sh
 ```
 
 ## Install (Hyprland Auto-Config)
@@ -28,7 +28,7 @@ or:
 Apply floating window rules automatically:
 
 ```bash
-./prototype/gtk4/install.sh
+./app/gtk4/install.sh
 ```
 
 This writes a managed block into your Hyprland window-rules config (detected from common Omarchy/Hypr paths) and reloads Hyprland.
@@ -36,13 +36,13 @@ This writes a managed block into your Hyprland window-rules config (detected fro
 It does not add a keybinding. Add one manually if you want:
 
 ```conf
-bindd = SUPER, C, Omcalc, exec, /home/andres/Projects/omarchy-calc/prototype/gtk4/run.sh
+bindd = SUPER, C, Omcalc, exec, /home/andres/Projects/omcalc/app/gtk4/run.sh
 ```
 
 Remove those managed blocks later:
 
 ```bash
-./prototype/gtk4/install.sh --uninstall
+./app/gtk4/install.sh --uninstall
 ```
 
 ## History Persistence
@@ -54,13 +54,13 @@ History is persisted by default to:
 Clear persisted history with:
 
 ```bash
-./prototype/gtk4/clear-history.sh
+./app/gtk4/clear-history.sh
 ```
 
 or:
 
 ```bash
-./prototype/gtk4/run.sh --clear-history
+./app/gtk4/run.sh --clear-history
 ```
 
 ## Engine Tests
@@ -68,10 +68,10 @@ or:
 Run parser/engine checks:
 
 ```bash
-./prototype/gtk4/test.sh
+./app/gtk4/test.sh
 ```
 
-## Current Prototype Scope
+## Current Scope
 
 - Floating-card style composition with translucent surface.
 - Compact floating footprint for utility-style usage.
@@ -99,4 +99,4 @@ Run parser/engine checks:
 
 ## Hyprland Hook
 
-See `prototype/gtk4/hyprland-snippet.conf` for keybind and window rules.
+See `app/gtk4/hyprland-snippet.conf` for keybind and window rules.

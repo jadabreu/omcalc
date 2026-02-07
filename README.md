@@ -1,69 +1,62 @@
-# Omarchy Calc (AGS v1)
+# Omcalc
 
-Hyprland-native calculator widget for `ags`, with Omarchy-style theming, keyboard-first UX, expression parsing, and session history.
+Minimal GTK4 calculator tuned for Omarchy and Hyprland workflows.
 
 ## Features
 
-- Full expression input: `(+ - * /)` with parentheses and unary minus.
-- Safe parser (no `eval`).
-- Keyboard-first flow:
-  - `Enter` / `KP_Enter`: evaluate
-  - `Esc`: clear input, then close when input is empty
-  - `Ctrl+C`: copy current result/preview
-- History of last 5 calculations (session-only).
-- Single toggleable window named `calculator`.
-- Omarchy theme integration with fallback values.
+- Native GTK4 + Libadwaita app written in GJS.
+- Safe expression parser (no `eval`).
+- Keyboard-first interaction model.
+- Persistent calculation history in `~/.local/state/omcalc/history.json`.
+- Theme integration from Omarchy theme files with live refresh.
 
-## Files
+## Project Layout
 
-- `config.js`: AGS app, parser, state, window, interactions.
-- `style.css`: visual design, blur-friendly transparent surface, controls.
+- `app/gtk4/` contains the app, engine, scripts, and tests.
+- `packaging/aur/omcalc-git/` contains AUR packaging files.
 
-## Install
-
-1. Copy these files into your AGS config directory:
+## Run
 
 ```bash
-cp config.js style.css ~/.config/ags/
+./app/gtk4/run.sh
 ```
 
-2. Start or reload AGS.
+## Clear History
 
-3. Add a Hyprland keybind:
-
-```ini
-bind = $mainMod, C, exec, ags -t calculator
+```bash
+./app/gtk4/clear-history.sh
 ```
 
-4. Optional Hyprland window rules for stronger blur behavior:
+## Test
 
-```ini
-windowrulev2 = float,title:^(calculator)$
-windowrulev2 = center,title:^(calculator)$
-windowrulev2 = noborder,title:^(calculator)$
-windowrulev2 = opacity 1.0 1.0,title:^(calculator)$
+```bash
+./app/gtk4/test.sh
 ```
 
-## Theme Loading
+## Hyprland Integration
 
-At startup, theme values are resolved from this order:
+Apply managed Hyprland window-rule blocks:
 
-1. CSS vars from:
-   - `~/.config/omarchy/style.css`
-   - `~/.config/waybar/style.css`
-   - `~/.config/ags/style.css`
-2. TOML fallback from:
-   - `~/.config/omarchy/theme.toml`
-   - `~/.config/omarchy/colors.toml`
-3. Hardcoded defaults.
+```bash
+./app/gtk4/install.sh
+```
 
-Supported color keys/vars include:
+Remove managed blocks:
 
-- `primary`, `secondary`, `background`, `accent`, `text`
-- CSS aliases like `--bg`, `--fg`, `--surface`, etc.
+```bash
+./app/gtk4/install.sh --uninstall
+```
 
-## Notes
+## AUR Packaging
 
-- History is intentionally ephemeral to mirror GNOME Calculator's basic-session behavior.
-- Result preview updates while typing when expression parses cleanly.
-- If your AGS install has minor API differences, adjust widget props/signals in `config.js`.
+The AUR scaffold is in `packaging/aur/omcalc-git/`.
+
+Before publishing:
+
+1. Set your real upstream URL in `PKGBUILD`.
+2. Regenerate metadata:
+
+```bash
+cd packaging/aur/omcalc-git
+makepkg --printsrcinfo > .SRCINFO
+```

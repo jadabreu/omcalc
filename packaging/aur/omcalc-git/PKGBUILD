@@ -31,13 +31,13 @@ pkgver() {
 package() {
   cd "${srcdir}/omarchy-calc"
 
-  install -Dm755 prototype/gtk4/run.sh "${pkgdir}/usr/lib/omcalc/run.sh"
-  install -Dm644 prototype/gtk4/omarchy_calc_ui.js "${pkgdir}/usr/lib/omcalc/omarchy_calc_ui.js"
-  install -Dm644 prototype/gtk4/engine.js "${pkgdir}/usr/lib/omcalc/engine.js"
-  install -Dm644 prototype/gtk4/omarchy_calc_ui.css "${pkgdir}/usr/lib/omcalc/omarchy_calc_ui.css"
+  install -Dm755 app/gtk4/run.sh "${pkgdir}/usr/lib/omcalc/run.sh"
+  install -Dm644 app/gtk4/omarchy_calc_ui.js "${pkgdir}/usr/lib/omcalc/omarchy_calc_ui.js"
+  install -Dm644 app/gtk4/engine.js "${pkgdir}/usr/lib/omcalc/engine.js"
+  install -Dm644 app/gtk4/omarchy_calc_ui.css "${pkgdir}/usr/lib/omcalc/omarchy_calc_ui.css"
 
-  install -Dm644 prototype/gtk4/README.md "${pkgdir}/usr/share/doc/omcalc/README.md"
-  install -Dm644 prototype/gtk4/hyprland-snippet.conf "${pkgdir}/usr/share/doc/omcalc/hyprland-snippet.conf"
+  install -Dm644 app/gtk4/README.md "${pkgdir}/usr/share/doc/omcalc/README.md"
+  install -Dm644 app/gtk4/hyprland-snippet.conf "${pkgdir}/usr/share/doc/omcalc/hyprland-snippet.conf"
 
   install -Dm755 "${srcdir}/omcalc" "${pkgdir}/usr/bin/omcalc"
   install -Dm755 "${srcdir}/omcalc-clear-history" "${pkgdir}/usr/bin/omcalc-clear-history"
