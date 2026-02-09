@@ -14,20 +14,10 @@
     padding: 20px;
 }
 
-.calc-header {
-    padding: 0 0 4px;
-}
-
-.calc-title {
-    color: @calc_text;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-}
-
 .calc-hints {
     color: @calc_dim;
     font-size: 0.72rem;
+    margin-top: 2px;
 }
 
 .calc-display {
@@ -45,6 +35,10 @@
     color: @calc_text;
     font-size: 2.52rem;
     padding: 0;
+}
+
+.calc-entry placeholder {
+    color: @calc_dim;
 }
 
 .omcalc-window.is-expanded .calc-entry {

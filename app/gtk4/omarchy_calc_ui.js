@@ -376,20 +376,6 @@ class OmcalcApp extends Adw.Application {
         });
         content.add_css_class('calc-canvas');
 
-        const header = new Gtk.CenterBox({
-            hexpand: true,
-        });
-        header.add_css_class('calc-header');
-
-        const hints = new Gtk.Label({
-            label: 'Enter calc | Ctrl+K keypad | Ctrl+Shift+L wipe history',
-            hexpand: true,
-            xalign: 0,
-        });
-        hints.add_css_class('calc-hints');
-
-        header.set_start_widget(hints);
-
         const display = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
             spacing: 4,
@@ -400,8 +386,10 @@ class OmcalcApp extends Adw.Application {
 
         this._expressionEntry = new Gtk.Entry({
             hexpand: true,
+            xalign: 1,
         });
         this._expressionEntry.add_css_class('calc-entry');
+        this._expressionEntry.set_placeholder_text('0');
         this._expressionEntry.connect('changed', () => this._updatePreview());
         this._expressionEntry.connect('activate', () => this._evaluateCurrent());
 
@@ -437,6 +425,13 @@ class OmcalcApp extends Adw.Application {
         historyScroll.add_css_class('calc-history-scroll');
         this._historyScroll = historyScroll;
 
+        const hints = new Gtk.Label({
+            label: 'Enter to calc | Ctrl+K keypad | Ctrl+Shift+L wipe history',
+            hexpand: true,
+            xalign: 0,
+        });
+        hints.add_css_class('calc-hints');
+
         this._keypadRevealer = new Gtk.Revealer({
             reveal_child: false,
             transition_duration: 0,
@@ -447,10 +442,10 @@ class OmcalcApp extends Adw.Application {
         this._keypadRevealer.set_reveal_child(true);
         this._keypadRevealer.set_reveal_child(false);
 
-        content.append(header);
         content.append(display);
         content.append(historyHeader);
         content.append(historyScroll);
+        content.append(hints);
         content.append(this._keypadRevealer);
 
         window.set_content(content);
